@@ -1,0 +1,38 @@
+﻿<Window x:Class="MyDate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPFTitleTextBox"
+        Title="日志" Height="350" Width="600" Icon="Resources/Images/journal2.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="207*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox  Name="dateListBox" Margin="10,10,80,10" SelectionChanged="dateListBox_Selected">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Date}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="commonListBox" Margin="103,10,116,97" SelectionChanged="commonListBox_Selected" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}" Foreground="Green"></TextBlock>
+                        <TextBlock Text="{Binding Common}"></TextBlock>
+                        <TextBlock Text="跳转" Foreground="Blue" TextDecorations="Underline" Visibility="{Binding IsSite}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <local:TitleTextBox Title="内容" Margin="103,227,116,52" Text="{Binding controller.Common}" x:Name="editCommon" Height="Auto" RenderTransformOrigin="-2.02,3.125" Grid.ColumnSpan="2"/>
+        <local:TitleTextBox Title="网址" Margin="103,272,116,10" Text="{Binding controller.Site}" x:Name="editSite" Height="Auto" Grid.ColumnSpan="2"/>
+
+        <Button Content="新增" HorizontalAlignment="Left" Margin="320,24,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="add_Click" Name="add"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="320,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="edit_Click" Name="edit"/>
+    </Grid>
+</Window>
