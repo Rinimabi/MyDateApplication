@@ -2,14 +2,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WPFTitleTextBox"
-        Title="日志" Height="350" Width="600" Icon="Resources/Images/journal2.ico">
+        Title="日志" Height="350" Width="600" Icon="Resources/Images/journal2.ico" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="89*"/>
-            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="348*"/>
+            <ColumnDefinition Width="66*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox  Name="dateListBox" Margin="10,10,80,10" SelectionChanged="dateListBox_Selected">
+        <ListBox  Name="dateListBox" Margin="10,10,63,10" SelectionChanged="dateListBox_Selected" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -18,7 +20,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Name="commonListBox" Margin="103,10,116,97" SelectionChanged="commonListBox_Selected" Grid.ColumnSpan="2">
+        <ListBox Name="commonListBox" Margin="71.45,10,33,97" SelectionChanged="commonListBox_Selected" Grid.ColumnSpan="2" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -29,10 +31,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <local:TitleTextBox Title="内容" Margin="103,227,116,52" Text="{Binding controller.Common}" x:Name="editCommon" Height="Auto" RenderTransformOrigin="-2.02,3.125" Grid.ColumnSpan="2"/>
-        <local:TitleTextBox Title="网址" Margin="103,272,116,10" Text="{Binding controller.Site}" x:Name="editSite" Height="Auto" Grid.ColumnSpan="2"/>
+        <local:TitleTextBox Title="内容" Margin="71.45,227,33,52" Text="{Binding controller.Common}" x:Name="editCommon" Height="Auto" RenderTransformOrigin="-2.02,3.125" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <local:TitleTextBox Title="网址" Margin="71.45,272,33,10" Text="{Binding controller.Site}" x:Name="editSite" Height="Auto" Grid.ColumnSpan="2" Grid.Column="1"/>
 
-        <Button Content="新增" HorizontalAlignment="Left" Margin="320,24,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="add_Click" Name="add"/>
-        <Button Content="修改" HorizontalAlignment="Left" Margin="320,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="edit_Click" Name="edit"/>
+        <Button Content="新增" HorizontalAlignment="Left" Margin="320,24,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="add_Click" Name="add" Grid.ColumnSpan="2"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="320,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="edit_Click" Name="edit" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
